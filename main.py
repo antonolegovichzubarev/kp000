@@ -1,3 +1,7 @@
+import telebot
+import csv
+
+
 def give_answer(s):
     try:
         tip, nomer = [i for i in s.split()]
@@ -10,9 +14,6 @@ def give_answer(s):
     except:
         return 'Нет такого задания'
 
-
-import telebot
-import csv
 
 bot = telebot.TeleBot('5583501026:AAEBtuivsPD-HoPxkWfSIEHiV42P5NXh4IY')
 answers = []
@@ -35,4 +36,5 @@ def start(message):
     bot.send_message(message.chat.id, answers_txt, parse_mode='html')
 
 
-bot.polling(none_stop=True)
+if __name__ == '__main__':
+    bot.polling(none_stop=True)
